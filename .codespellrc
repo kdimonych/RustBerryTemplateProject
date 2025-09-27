@@ -1,0 +1,5 @@
+[codespell]
+ignore-words = .codespellignore
+check-filenames =
+check-hidden =
+builtin=clear,rare,informal,en-GB_to_en-US

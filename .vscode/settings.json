@@ -1,5 +1,14 @@
 {
     "rust-analyzer.cargo.target": "thumbv6m-none-eabi",
     "rust-analyzer.check.allTargets": false,
-    "editor.formatOnSave": true
+    "editor.formatOnSave": true,
+    "rust-analyzer.cargo.runBuildScripts": true,
+    "rust-analyzer.checkOnSave.command": "clippy",
+    "editor.defaultFormatter": "rust-lang.rust-analyzer",
+    "files.readonlyInclude": {
+        "**/.cargo/registry/src/**/*.rs": true,
+        "**/.cargo/git/checkouts/**/*.rs": true,
+        "**/lib/rustlib/src/rust/library/**/*.rs": true,
+    },
+    "dependi.rust.lockFileEnabled": true,
 }

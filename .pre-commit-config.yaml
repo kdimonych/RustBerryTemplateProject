@@ -1,0 +1,83 @@
+---
+exclude: '^$'
+fail_fast: false
+repos:
+  - repo: local
+    hooks:
+      - id: cargo-fmt
+        name: cargo fmt
+        entry: cargo fmt --
+        language: system
+        types: [rust]
+      # - id: cargo-clippy
+      #   name: cargo clippy
+      #   entry: cargo clippy -- -D warnings
+      #   language: system
+      #   types: [rust]
+
+  - repo: https://github.com/codespell-project/codespell
+    rev: v2.4.1
+    hooks:
+      - id: codespell
+        name: check for common misspelled words
+
+  - repo: https://github.com/executablebooks/mdformat
+    rev: 0.7.22
+    hooks:
+      - id: mdformat
+        exclude: '.github/.*'
+        additional_dependencies:
+          - mdformat-tables
+          - mdformat-gfm
+          - mdformat-gfm-alerts
+
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: check-added-large-files
+      - id: check-case-conflict
+      - id: check-executables-have-shebangs
+      - id: check-json
+        exclude: '^(\.vscode/.*\.json|cargo-generate/launch\.json)$'
+      - id: check-merge-conflict
+      - id: check-shebang-scripts-are-executable
+      - id: check-symlinks
+      - id: check-xml
+      - id: check-yaml
+        args: [--allow-multiple-documents]
+      - id: end-of-file-fixer
+      - id: fix-byte-order-marker
+      - id: forbid-submodules
+      - id: trailing-whitespace
+        args: [--markdown-linebreak-ext=md]
+      - id: pretty-format-json
+        args: [--autofix, --no-sort-keys, --no-ensure-ascii]
+        exclude: '^(\.vscode/.*\.json|cargo-generate/launch\.json)$'
+
+  - repo: https://github.com/adrienverge/yamllint
+    rev: v1.37.0
+    hooks:
+      - id: yamllint
+        name: check yaml files with yamllint
+        args: ["-c", ".yamllint.yaml"]
+
+  # - repo: https://github.com/rhysd/actionlint
+  #   rev: v1.7.7
+  #   hooks:
+  #     - id: actionlint
+  #       name: check GitHub workflow files
+
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.11.2
+    hooks:
+      - id: ruff
+        name: check python files with ruff
+        # override line length to format accordingly, but warn less
+        args: [--line-length=160]
+      - id: ruff-format
+        name: format python files with ruff
+
+  # - repo: https://github.com/renovatebot/pre-commit-hooks
+  #   rev: 39.222.1
+  #   hooks:
+  #     - id: renovate-config-validator

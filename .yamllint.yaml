@@ -1,0 +1,22 @@
+---
+
+extends: default
+
+ignore: # Specify files or patterns to ignore
+  - ".clang-format"
+  - "*/.clang-format"  # Ignore .clang-format files in subdirectories
+
+rules:
+  line-length:
+    max: 180
+    level: warning
+
+  indentation:
+    spaces: 2
+    level: error
+
+  truthy:
+    ignore: |
+      .github/workflows/*
+      .clang-format
+      */.clang-format
