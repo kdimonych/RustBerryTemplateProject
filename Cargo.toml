@@ -13,7 +13,15 @@ defmt = "1"
 defmt-rtt = "1"
 panic-probe = { version = "1", features = ["print-defmt"] }
 
-# We're using a Pico by default on this template
+# For Pico W with WiFi support using embassy
+embassy-executor = { version = "0.5", features = ["arch-cortex-m", "executor-thread", "defmt", "integrated-timers"] }
+embassy-time = { version = "0.3", features = ["defmt", "defmt-timestamp-uptime"] }
+embassy-rp = { version = "0.1", features = ["defmt", "unstable-pac", "time-driver", "critical-section-impl"] }
+cyw43 = "0.1"
+cyw43-pio = "0.1"
+embassy-net = { version = "0.4", features = ["defmt", "tcp", "udp", "dhcpv4", "medium-ethernet"] }
+
+# Alternative: Use rp-pico but you'll need to handle CYW43 separately
 rp-pico = "0.9"
 
 # but you can use any BSP. Uncomment this to use the pro_micro_rp2040 BSP instead
