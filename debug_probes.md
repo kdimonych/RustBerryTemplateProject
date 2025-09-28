@@ -1,5 +1,15 @@
 # Compatible CMSIS-DAP debug probes
 
+## Install debug tool for MacOS
+
+You need to install probe rs debugger
+
+```sh
+brew install probe-rs/probe-rs/probe-rs
+```
+
+And then for VSCode install extension [probe-rs-debugger](https://marketplace.visualstudio.com/items?itemName=probe-rs.probe-rs-debugger)
+
 ## Raspberry Pi Pico
 
 You can use a second Pico as your debugger.
