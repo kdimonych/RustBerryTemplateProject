@@ -8,7 +8,7 @@ You need to install probe rs debugger
 brew install probe-rs/probe-rs/probe-rs
 ```
 
-And then for VSCode install extension [probe-rs-debugger](https://marketplace.visualstudio.com/items?itemName=probe-rs.probe-rs-debugger)
+And then for VSCode you need to install extension [probe-rs-debugger](https://marketplace.visualstudio.com/items?itemName=probe-rs.probe-rs-debugger)
 
 ## Raspberry Pi Pico
 
