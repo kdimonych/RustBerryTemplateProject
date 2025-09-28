@@ -13,16 +13,13 @@ jobs:
       matrix:
         # All generated code should be running on stable now
         rust: [nightly, stable]
+        # Check compilation works on common OSes
+        # (i.e. no path issues)
+        os: [ubuntu-latest, macOS-latest, windows-latest]
         include:
           # Nightly is only for reference and allowed to fail
           - rust: nightly
             experimental: true
-        os:
-          # Check compilation works on common OSes
-          # (i.e. no path issues)
-          - ubuntu-latest
-          - macOS-latest
-          - windows-latest
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v3
@@ -57,3 +54,16 @@ jobs:
           components: rustfmt
           target: thumbv6m-none-eabi
       - run: cargo fmt -- --check
+  pre-commit:
+    name: Pre-commit
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt
+          target: thumbv6m-none-eabi
+      - uses: pre-commit/action@v3.0.0
