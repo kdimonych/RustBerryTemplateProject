@@ -1,10 +1,35 @@
+# Compiled source #
+###################################
+*.com
+*.class
+*.dll
+*.exe
+*.obj
+*.so
+*.pyc
+*.pyo
+*.pyd
+*.jar
+*.war
+*.ear
+
+# Rust specific
+/target/
 **/*.rs.bk
 .#*
 .gdb_history
 Cargo.lock
-target/
 
-# editor files
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE files
 .vscode/*
 !.vscode/*.md
 !.vscode/*.svd
@@ -12,3 +37,15 @@ target/
 !.vscode/tasks.json
 !.vscode/extensions.json
 !.vscode/settings.json
+
+# Environment files
+.env
+.env.local
+.env.production
+.env.test
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
