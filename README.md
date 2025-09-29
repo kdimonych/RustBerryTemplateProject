@@ -60,7 +60,7 @@ See the rest of the README for instructions on setting up different hardware or 
 3. Start your project by copying this template:
 
    ```
-   $ cargo generate rp-rs/rp2040-project-template
+   $ cargo generate kdimonych/RustBerryTemplateProject
    ```
 
 4. Install the cross-compilation toolchain:
