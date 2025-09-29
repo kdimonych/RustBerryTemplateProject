@@ -1,5 +1,5 @@
 [package]
-edition = "2021"
+edition = "2024"
 name = "{{project-name}}"
 version = "0.1.0"
 license = "MIT OR Apache-2.0"
@@ -13,14 +13,22 @@ defmt = "1"
 defmt-rtt = "1"
 panic-probe = { version = "1", features = ["print-defmt"] }
 
-# We're using a Pico by default on this template
+# For Pico W with WiFi support using embassy
+embassy-executor = { version = "0.9", features = ["arch-cortex-m", "executor-thread", "defmt"] }
+embassy-time = { version = "0.5", features = ["defmt", "defmt-timestamp-uptime"] }
+embassy-rp = { version = "0.8", features = ["rp2040", "defmt", "unstable-pac", "time-driver", "critical-section-impl"] }
+cyw43 = "0.5"
+cyw43-pio = "0.8"
+embassy-net = { version = "0.7", features = ["defmt", "tcp", "udp", "dhcpv4", "medium-ethernet"] }
+
+# Alternative: Use rp-pico but you'll need to handle CYW43 separately
 rp-pico = "0.9"
 
 # but you can use any BSP. Uncomment this to use the pro_micro_rp2040 BSP instead
 # sparkfun-pro-micro-rp2040 = "0.8"
 
 # If you're not going to use a Board Support Package you'll need these:
-# rp2040-hal = { version="0.10", features=["rt", "critical-section-impl"] }
+# rp2040-hal = { version="0.11", features=["rt", "critical-section-impl"] }
 # rp2040-boot2 = "0.3"
 
 # cargo build/run
